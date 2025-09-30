@@ -1,4 +1,4 @@
-EmbeddingModel//
+//
 //  ImagePreprocessor.swift
 //  photo-grouping-app
 //
