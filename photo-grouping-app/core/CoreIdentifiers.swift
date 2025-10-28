@@ -13,7 +13,7 @@ import Foundation
 /// Wraps the PhotosKit localIdentifier (String) for type safety.
 struct PhotoID: Hashable, Codable {
     let raw: String
-    init(_ raw: String) { self.raw = raw }
+    // init(_ raw: String) { self.raw = raw }
 }
 
 /// Unique identifier for a generated photo group.
