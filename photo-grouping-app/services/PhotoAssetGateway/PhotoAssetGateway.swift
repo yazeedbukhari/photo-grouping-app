@@ -70,4 +70,27 @@ final class PhotosKitGateway: PhotoAssetGateway {
             }
         }
     }
+    
+    func thumbnail(for id: PhotoID, size: CGSize = .init(width: 256, height: 256)) async throws -> UIImage {
+        guard let asset = lookup.asset(for: id) else { throw FetchErr.missingAsset }
+        
+        return try await withCheckedThrowingContinuation { cont in
+            let opts = PHImageRequestOptions()
+            opts.deliveryMode = .opportunistic
+            opts.resizeMode  = .fast
+            PHImageManager.default().requestImage(
+                for: asset,
+                targetSize: size,
+                contentMode: .aspectFill,
+                options: opts
+            ) { img, _ in
+                if let i = img {
+                    cont.resume(returning: i)
+                }
+                else {
+                    cont.resume(throwing: FetchErr.missingAsset)
+                }
+            }
+        }
+    }
 }

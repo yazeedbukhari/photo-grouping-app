@@ -11,7 +11,7 @@ import SwiftUI
 struct PhotoGroupingApp: App {
     var body: some Scene {
         WindowGroup {
-            GatewayPreviewView() // for testing purposes now
+            ThumbnailGridView() // for testing purposes now
         }
     }
 }
