@@ -35,7 +35,7 @@ final class PhotosKitGateway: PhotoAssetGateway {
         }())
         var out: [PhotoRef] = []
         results.enumerateObjects { a, _, stop in
-            out.append(.init(id: .init(raw: a.localIdentifier),
+            out.append(.init(id: .init(a.localIdentifier),
                              creationDate: a.creationDate,
                              isFavorite: a.isFavorite))
             if out.count >= limit { stop.pointee = true }

@@ -26,7 +26,7 @@ struct ThumbnailGridView: View { // front-end
         }
         .task { // runs only when the view shows
             let state = await PhotosAuth.requestIfNeeded() // waits until permission is gotten
-            guard case .authorized = state ?? .denied else { return }
+            guard case .authorized = state else { return }
 
             let gateway = PhotosKitGateway()
             gw = gateway
