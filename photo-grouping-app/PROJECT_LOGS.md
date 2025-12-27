@@ -14,5 +14,12 @@
 ## 2025-10-31
 - added an image quality extraction feature. subject to change when I start working on SuggestionService
 - add embedding service using Apples FeaturePrint; made it modular in case I want to switch to 
-- next: clean up EmbeddingService code
+- Next: clean up EmbeddingService code
 - Thoughts: How do I add logging? where would it be written
+
+## 2025-12-27
+- restarting and finishing this project over winter break
+- set up grouping service to group using dot similarity (vectors are already normalized during embedding generation)
+- wrote it myself this time with chatgpt for syntax help
+- Next: make the groups visible on the UI
+- Thoughts: How does the UI connection work in Swift? I saw smth about MVVM model. I've done angular front-end that calls on backend. Maybe M is the backend, VM is the typesript code (kind of in a state), V is the html/css code?

@@ -37,7 +37,7 @@ final class ImageResizerTests: XCTestCase {
         let ptr = CFDataGetBytePtr(data)!
         let bpr = cg.bytesPerRow
         let offset = y * bpr + x * 4
-        let big = cg.bitmapInfo.contains(.byteOrder32Big)
+        let _ = cg.bitmapInfo.contains(.byteOrder32Big)
         let little = cg.bitmapInfo.contains(.byteOrder32Little)
         // If CoreGraphics doesn’t specify, default to big-endian style byte order for RGBA reads
         let isLittle = little

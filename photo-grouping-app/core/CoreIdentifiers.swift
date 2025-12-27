@@ -20,7 +20,10 @@ struct PhotoID: Hashable, Codable {
 /// Deterministic hash of member IDs + model version.
 struct GroupID: Hashable, Codable {
     let raw: String
-    init(_ raw: String) { self.raw = raw }
+
+    init(firstPhotoID: PhotoID, startTime: EpochMillis) {
+        self.raw = "\(firstPhotoID.raw)_\(startTime)"
+    }
 }
 
 /// Model version string for embeddings (e.g., "EmbedModel_v3.1").

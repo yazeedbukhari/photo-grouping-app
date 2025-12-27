@@ -67,21 +67,8 @@ struct FeaturePrintEmbedder {
         let raw = try obs.toFloatArray()
 
         // Normalize to unit length so cosine distance = 1 - dot(a,b).
-        let norm = l2Normalize(raw)
+        let norm = normalizeL2(raw)
         return norm
-    }
-
-    // MARK: - Helpers
-
-    /// L2-normalize a float vector. Keeps zeros as-is to avoid division by zero.
-    private func l2Normalize(_ x: [Float]) -> [Float] {
-        var sum: Float = 0
-        for v in x { sum += v * v }
-        let n = sqrt(sum)
-        guard n > 0 else { return x }
-        let inv = 1.0 / n
-        // Map with multiplication is fast enough here; you can SIMD later if needed.
-        return x.map { $0 * Float(inv) }
     }
 }
 
